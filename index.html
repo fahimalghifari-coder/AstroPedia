@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astropedia - Mini Ensiklopedia Astronomi</title>
+    <title>Astropedia - Mini Astronomy Encyclopedia</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- SweetAlert2 CDN -->
@@ -54,7 +54,12 @@
             <a href="#" onclick="showDashboard()" class="flex items-center space-x-2 group">
                 <span class="text-2xl font-bold tracking-wider bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent group-hover:opacity-85 transition">ASTROPEDIA</span>
             </a>
-            <span class="text-xs uppercase tracking-widest text-sky-400/80 border border-sky-500/30 px-3 py-1 rounded-full bg-sky-950/30">Mini Ensiklopedia</span>
+            
+            <!-- Tombol Translate di Dashboard (Hanya muncul di dashboard) -->
+            <div id="translate-container" class="flex items-center space-x-2">
+                <button onclick="switchLanguage('id')" id="btn-id" class="text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm">ID</button>
+                <button onclick="switchLanguage('en')" id="btn-en" class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition">EN</button>
+            </div>
         </div>
     </header>
 
@@ -64,8 +69,8 @@
         <!-- ================= DASHBOARD (Default) ================= -->
         <section id="dashboard-view" class="space-y-6">
             <div class="text-center space-y-3 mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white">Eksplorasi Kosmos</h1>
-                <p class="text-slate-400 max-w-lg mx-auto text-sm md:text-base">Pilih topik astronomi di bawah ini untuk menyelami misteri alam semesta melalui lembar ensiklopedia interaktif.</p>
+                <h1 id="dash-title" class="text-4xl md:text-5xl font-bold tracking-tight text-white">Eksplorasi Kosmos</h1>
+                <p id="dash-desc" class="text-slate-400 max-w-lg mx-auto text-sm md:text-base">Pilih topik astronomi di bawah ini untuk menyelami misteri alam semesta melalui lembar ensiklopedia interaktif.</p>
             </div>
 
             <!-- Card Tersusun Vertikal -->
@@ -76,8 +81,8 @@
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
                             <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Topik 01</span>
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-sky-300 transition">Teori Big Bang</h3>
-                            <p class="text-slate-400 text-sm">Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.</p>
+                            <h3 id="card1-title" class="text-xl font-bold text-slate-100 group-hover:text-sky-300 transition">Teori Big Bang</h3>
+                            <p id="card1-desc" class="text-slate-400 text-sm">Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.</p>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-sky-950/50 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:translate-x-1 transition">
                             →
@@ -90,8 +95,8 @@
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
                             <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Topik 02</span>
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-purple-300 transition">Black Hole (Lubang Hitam)</h3>
-                            <p class="text-slate-400 text-sm">Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.</p>
+                            <h3 id="card2-title" class="text-xl font-bold text-slate-100 group-hover:text-purple-300 transition">Black Hole (Lubang Hitam)</h3>
+                            <p id="card2-desc" class="text-slate-400 text-sm">Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.</p>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:translate-x-1 transition">
                             →
@@ -104,8 +109,8 @@
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
                             <span class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Topik 03</span>
-                            <h3 class="text-xl font-bold text-slate-100 group-hover:text-pink-300 transition">Nebula Kosmik</h3>
-                            <p class="text-slate-400 text-sm">Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.</p>
+                            <h3 id="card3-title" class="text-xl font-bold text-slate-100 group-hover:text-pink-300 transition">Nebula Kosmik</h3>
+                            <p id="card3-desc" class="text-slate-400 text-sm">Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.</p>
                         </div>
                         <div class="w-10 h-10 rounded-full bg-pink-950/50 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:translate-x-1 transition">
                             →
@@ -117,43 +122,55 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG ================= -->
+        <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG (FULL ENGLISH & MODERN LAYOUT) ================= -->
         <section id="encyclopedia-bigbang" class="hidden space-y-8 animate-fadeIn">
             <!-- Tombol Kembali -->
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-sky-400 hover:text-sky-300 bg-sky-950/40 border border-sky-500/30 px-4 py-2 rounded-xl transition">
-                <span>← Kembali ke Dashboard</span>
+                <span>← Back to Dashboard</span>
             </button>
 
-            <!-- Konten Ensiklopedia -->
-            <div class="space-y-6">
-                <div>
-                    <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Ensiklopedia Astronomi</span>
-                    <h1 class="text-3xl md:text-4xl font-bold text-white mt-1">Teori Big Bang</h1>
+            <!-- Tampilan Ensiklopedia Modern -->
+            <div class="space-y-8 bg-slate-900/50 border border-white/10 p-6 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl">
+                
+                <!-- Judul Utama Ensiklopedia -->
+                <div class="border-b border-white/10 pb-6">
+                    <span class="text-xs font-semibold text-sky-400 uppercase tracking-widest">Astronomy Encyclopedia Vol. 01</span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-white mt-2 font-space">The Big Bang Theory</h1>
+                    <p class="text-slate-400 text-sm mt-1">The scientific model describing the origin and evolution of the universe.</p>
                 </div>
 
-                <!-- Paragraf 1: Pernyataan Umum -->
-                <div class="bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-sm space-y-3">
-                    <h2 class="text-lg font-bold text-sky-300">Pernyataan Umum</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-                        <strong>Teori Big Bang</strong> (Ledakan Dahsyat) adalah model ilmiah yang paling banyak diterima untuk menjelaskan asal-usul dan evolusi alam semesta kita. Teori ini menyatakan bahwa seluruh alam semesta beserta segala isinya—materi, energi, ruang, dan waktu—bermula dari satu titik tunggal yang sangat padat dan bersuhu luar biasa panas sekitar 13,8 miliar tahun yang lalu. Dari titik awal tersebut, alam semesta mengalami pengembangan atau ekspansi yang sangat cepat ke segala arah, lalu perlahan mendingin sehingga memungkinkan partikel-partikel dasar bergabung membentuk atom, yang pada akhirnya berevolusi menjadi bintang, galaksi, dan planet yang kita kenal saat ini.
+                <!-- Bagian Gambar Utama & Keterangan (Gaya Ensiklopedia Modern) -->
+                <div class="space-y-3">
+                    <div class="overflow-hidden rounded-2xl border border-sky-500/20 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="The Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <p class="text-xs text-slate-400 text-center italic">Figure 1.1 — Artistic simulation of cosmic expansion and early universe energy distribution.</p>
+                </div>
+
+                <!-- Konten Paragraf 1: General Statement -->
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-sky-300 font-space">1. General Statement</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                        The <strong>Big Bang Theory</strong> is the leading scientific explanation about the origin and evolution of our universe. It states that the entire universe—including all matter, energy, space, and time—originated approximately 13.8 billion years ago from an infinitely dense, extremely hot singularity. From this initial state, the universe underwent a rapid and massive cosmic expansion, eventually cooling down to allow fundamental particles to form atoms, which later evolved into stars, galaxies, and planets as we know today.
                     </p>
                 </div>
 
-                <!-- Paragraf 2: Bukti Ilmiah (NASA) -->
-                <div class="bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-sm space-y-3">
-                    <h2 class="text-lg font-bold text-sky-300">Bukti Ilmiah & Pengamatan (NASA)</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-                        Keabsahan teori Big Bang didukung oleh pilar bukti pengamatan utama yang diteliti oleh lembaga antariksa seperti NASA. Pertama, ekspansi alam semesta di mana galaksi-galaksi teramati bergerak saling menjauh. Kedua, keberadaan radiasi <em>Latar Belakang Gelombang Mikro Kosmik</em> (CMB) sebagai fosil panas purba dari awal penciptaan. Ketiga, kelimpahan unsur-unsur ringan (seperti hidrogen dan helium) yang sesuai dengan prediksi perhitungan fusi kosmik awal.
+                <!-- Konten Paragraf 2: Scientific Evidence (NASA) -->
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-sky-300 font-space">2. Scientific Evidence (NASA Research)</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                        The validity of the Big Bang theory is strongly supported by three major pillars of observational evidence studied by space agencies like NASA. First, the <strong>expansion of the universe</strong>, observed by Edwin Hubble, showing galaxies moving away from each other. Second, the existence of the <em>Cosmic Microwave Background (CMB)</em> radiation, which serves as the ancient thermal fossil echo from the hot primeval phase. Third, the observed <strong>abundance of light elements</strong> such as hydrogen, helium, and lithium, precisely matching the theoretical predictions of early cosmic nucleosynthesis.
                     </p>
                 </div>
 
-                <!-- Paragraf 3: Deskripsi Bagian (Noun Phrase DOSASCOMP) -->
-                <div class="bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-sm space-y-3">
-                    <h2 class="text-lg font-bold text-sky-300">Deskripsi Bagian Kosmik</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-                        Setelah peristiwa Big Bang, alam semesta perlahan mendingin dan memungkinkan materi dasar untuk saling tarik-menarik akibat gaya gravitasi. Proses panjang ini pada akhirnya melahirkan miliaran galaksi. Salah satu contoh struktur menakjubkan yang terbentuk dari sisa-sisa debu kosmik purba ini adalah <strong>a beautiful massive ancient spiral galaxy</strong> seperti Bima Sakti tempat kita bernaung. Galaksi semacam ini bukan sekadar kumpulan bintang, melainkan ekosistem raksasa yang mengikat triliunan tata surya menjadi satu kesatuan.
+                <!-- Konten Paragraf 3: Component Description (DOSASCOMP) -->
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-sky-300 font-space">3. Cosmic Description</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                        Following the cooling period after the Big Bang, gravity began pulling cosmic materials together across hundreds of millions of years, giving birth to magnificent galactic structures. A prominent example of this evolutionary result is <strong>a beautiful massive ancient spiral galaxy</strong> like our Milky Way. These stellar systems act as vast cosmic ecosystems that bind trillions of solar systems, gas clouds, and dark matter into enduring celestial architectures.
                     </p>
                 </div>
+
             </div>
         </section>
 
@@ -161,25 +178,82 @@
 
     <!-- Footer -->
     <footer class="w-full border-t border-white/10 py-6 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Astropedia. Tugas Mini Ensiklopedia Astronomi.</p>
+        <p>&copy; 2026 Astropedia. Mini Astronomy Encyclopedia Task.</p>
     </footer>
 
-    <!-- JavaScript Navigasi & SweetAlert -->
+    <!-- JavaScript Logika Multi-bahasa & Navigasi -->
     <script>
+        // Data Terjemahan Dashboard
+        const translations = {
+            id: {
+                dashTitle: "Eksplorasi Kosmos",
+                dashDesc: "Pilih topik astronomi di bawah ini untuk menyelami misteri alam semesta melalui lembar ensiklopedia interaktif.",
+                card1Title: "Teori Big Bang",
+                card1Desc: "Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.",
+                card2Title: "Black Hole (Lubang Hitam)",
+                card2Desc: "Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.",
+                card3Title: "Nebula Kosmik",
+                card3Desc: "Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.",
+                alertTitle: "Belum Tersedia",
+                alertText: "Halaman ensiklopedia untuk topik ini sedang dalam tahap penelitian kosmik.",
+                alertBtn: "Mengerti"
+            },
+            en: {
+                dashTitle: "Cosmic Exploration",
+                dashDesc: "Choose an astronomy topic below to explore the mysteries of the universe through interactive encyclopedia sheets.",
+                card1Title: "The Big Bang Theory",
+                card1Desc: "The origin of the universe, NASA scientific evidence, and the formation of ancient galaxies.",
+                card2Title: "Black Holes",
+                card2Desc: "Extreme gravity, event horizons, and regions of space where light cannot escape.",
+                card3Title: "Cosmic Nebulae",
+                card3Desc: "Giant interstellar clouds of dust, plasma, and gas acting as stellar nurseries.",
+                alertTitle: "Not Available Yet",
+                alertText: "The encyclopedia page for this topic is currently undergoing cosmic research.",
+                alertBtn: "Understood"
+            }
+        };
+
+        let currentLang = 'id';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+
+            // Ubah teks di dashboard
+            document.getElementById('dash-title').innerText = t.dashTitle;
+            document.getElementById('dash-desc').innerText = t.dashDesc;
+            document.getElementById('card1-title').innerText = t.card1Title;
+            document.getElementById('card1-desc').innerText = t.card1Desc;
+            document.getElementById('card2-title').innerText = t.card2Title;
+            document.getElementById('card2-desc').innerText = t.card2Desc;
+            document.getElementById('card3-title').innerText = t.card3Title;
+            document.getElementById('card3-desc').innerText = t.card3Desc;
+
+            // Atur gaya tombol aktif translate
+            if (lang === 'id') {
+                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
+                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
+                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition";
+            }
+        }
+
         function openEncyclopedia(topic) {
             if (topic === 'bigbang') {
-                // Sembunyikan dashboard, tampilkan halaman Big Bang
+                // Sembunyikan dashboard & tombol translate header, tampilkan halaman Big Bang
                 document.getElementById('dashboard-view').classList.add('hidden');
+                document.getElementById('translate-container').classList.add('hidden');
                 document.getElementById('encyclopedia-bigbang').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                // Tampilkan SweetAlert "Belum Tersedia" dengan latar belakang halaman ter-blur
+                const t = translations[currentLang];
                 Swal.fire({
-                    title: 'Belum Tersedia',
-                    text: 'Halaman ensiklopedia untuk topik ini sedang dalam tahap penelitian kosmik.',
+                    title: t.alertTitle,
+                    text: t.alertText,
                     icon: 'info',
-                    confirmButtonText: 'Mengerti',
-                    backdrop: 'rgba(3, 7, 18, 0.7)', // Mengatur gelap dan blur latar belakang
+                    confirmButtonText: t.alertBtn,
+                    backdrop: 'rgba(3, 7, 18, 0.7)',
                     customClass: {
                         popup: 'rounded-2xl'
                     }
@@ -188,9 +262,10 @@
         }
 
         function showDashboard() {
-            // Kembali ke tampilan dashboard utama
+            // Kembali ke dashboard dan munculkan kembali tombol translate
             document.getElementById('encyclopedia-bigbang').classList.add('hidden');
             document.getElementById('dashboard-view').classList.remove('hidden');
+            document.getElementById('translate-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
