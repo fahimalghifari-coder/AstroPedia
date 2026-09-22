@@ -3,62 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astropedia - Mini Astronomy Encyclopedia</title>
+    <title>Astropedia - Tugas Ensiklopedia Astronomi</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Google Fonts: Space Grotesk & Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030712;
-            color: #f3f4f6;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #dbeafe 100%);
+            color: #1e293b;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         h1, h2, h3, .font-space {
             font-family: 'Space Grotesk', sans-serif;
         }
-        /* Efek Latar Belakang Bintang Berkelap-kelip */
-        .stars {
-            background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-                              radial-gradient(1px 1px at 90px 40px, #ddd, rgba(0,0,0,0));
+        /* Efek latar belakang bintang/partikel lembut bernuansa terang */
+        .sky-light {
+            background-image: radial-gradient(2px 2px at 30px 40px, rgba(56, 189, 248, 0.4), rgba(0,0,0,0)),
+                              radial-gradient(2px 2px at 70px 90px, rgba(129, 140, 248, 0.3), rgba(0,0,0,0)),
+                              radial-gradient(1px 1px at 150px 60px, rgba(14, 165, 233, 0.2), rgba(0,0,0,0));
             background-repeat: repeat;
-            background-size: 200px 200px;
-            animation: twinkle 50s linear infinite;
+            background-size: 250px 250px;
         }
-        @keyframes twinkle {
-            from { background-position: 0 0; }
-            to { background-position: -10000px 5000px; }
-        }
-        /* Kustomisasi SweetAlert untuk tema gelap luar angkasa */
+        /* Kustomisasi SweetAlert untuk tema terang & elegan */
         .swal2-popup {
-            background: #0f172a !important;
-            color: #f8fafc !important;
-            border: 1px solid #38bdf833 !important;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+            background: #ffffff !important;
+            color: #1e293b !important;
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
             backdrop-filter: blur(8px);
+            border-radius: 1.5rem !important;
         }
         .swal2-styled.swal2-confirm {
             background-color: #0284c7 !important;
+            border-radius: 0.75rem !important;
         }
     </style>
 </head>
-<body class="stars min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+<body class="sky-light flex flex-col justify-between selection:bg-sky-400 selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="w-full border-b border-white/10 backdrop-blur-md bg-black/30 sticky top-0 z-50">
+    <header class="w-full border-b border-slate-200 backdrop-blur-md bg-white/70 sticky top-0 z-50 shadow-sm">
         <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showDashboard()" class="flex items-center space-x-2 group">
-                <span class="text-2xl font-bold tracking-wider bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent group-hover:opacity-85 transition">ASTROPEDIA</span>
+                <span class="text-2xl font-bold tracking-wider bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent transition">ASTROPEDIA</span>
             </a>
             
-            <!-- Tombol Translate di Dashboard (Hanya muncul di dashboard) -->
+            <!-- Tombol Translate di Dashboard -->
             <div id="translate-container" class="flex items-center space-x-2">
-                <button onclick="switchLanguage('id')" id="btn-id" class="text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm">ID</button>
-                <button onclick="switchLanguage('en')" id="btn-en" class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition">EN</button>
+                <button onclick="switchLanguage('id')" id="btn-id" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm">ID</button>
+                <button onclick="switchLanguage('en')" id="btn-en" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-600 hover:text-slate-900 transition">EN</button>
             </div>
         </div>
     </header>
@@ -67,52 +65,62 @@
     <main id="main-content" class="max-w-3xl mx-auto px-6 py-12 w-full flex-grow transition-all duration-300">
         
         <!-- ================= DASHBOARD (Default) ================= -->
-        <section id="dashboard-view" class="space-y-6">
-            <div class="text-center space-y-3 mb-10">
-                <h1 id="dash-title" class="text-4xl md:text-5xl font-bold tracking-tight text-white">Eksplorasi Kosmos</h1>
-                <p id="dash-desc" class="text-slate-400 max-w-lg mx-auto text-sm md:text-base">Pilih topik astronomi di bawah ini untuk menyelami misteri alam semesta melalui lembar ensiklopedia interaktif.</p>
+        <section id="dashboard-view" class="space-y-8">
+            <div class="text-center space-y-4 mb-10">
+                <h1 id="dash-title" class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 font-space">Tugas Ensiklopedia Bahasa Inggris</h1>
+                
+                <!-- Daftar Anggota Kelompok -->
+                <div class="inline-block bg-white/80 border border-slate-200/80 px-6 py-4 rounded-2xl shadow-sm text-left backdrop-blur-sm">
+                    <p class="text-xs font-bold uppercase tracking-wider text-sky-600 mb-2 text-center">Anggota Kelompok:</p>
+                    <ol class="text-slate-700 text-xs md:text-sm space-y-1 font-medium">
+                        <li>1. Abdullah Dzaki A. <span class="text-slate-400">(1)</span></li>
+                        <li>2. Danesha Ezio A.P. <span class="text-slate-400">(10)</span></li>
+                        <li>3. Fahim Haidar A. <span class="text-slate-400">(13)</span></li>
+                        <li>4. M. Khoirul Azzam <span class="text-slate-400">(22)</span></li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Card Tersusun Vertikal -->
             <div class="flex flex-col space-y-4">
                 
                 <!-- Card 1: Big Bang (Tersedia) -->
-                <div onclick="openEncyclopedia('bigbang')" class="group relative bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-sky-500/50 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-lg hover:shadow-sky-500/10 backdrop-blur-sm">
+                <div onclick="openEncyclopedia('bigbang')" class="group relative bg-white/80 hover:bg-white border border-slate-200 hover:border-sky-400 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
-                            <span class="text-xs font-semibold text-sky-400 uppercase tracking-wider">Topik 01</span>
-                            <h3 id="card1-title" class="text-xl font-bold text-slate-100 group-hover:text-sky-300 transition">Teori Big Bang</h3>
-                            <p id="card1-desc" class="text-slate-400 text-sm">Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.</p>
+                            <span class="text-xs font-semibold text-sky-600 uppercase tracking-wider">Topik 01</span>
+                            <h3 id="card1-title" class="text-xl font-bold text-slate-800 group-hover:text-sky-600 transition">Teori Big Bang</h3>
+                            <p id="card1-desc" class="text-slate-500 text-sm">Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.</p>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-sky-950/50 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:translate-x-1 transition">
+                        <div class="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 group-hover:translate-x-1 transition">
                             →
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2: Black Hole (Belum Tersedia) -->
-                <div onclick="openEncyclopedia('blackhole')" class="group relative bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-purple-500/50 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-lg backdrop-blur-sm">
+                <div onclick="openEncyclopedia('blackhole')" class="group relative bg-white/80 hover:bg-white border border-slate-200 hover:border-indigo-400 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
-                            <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Topik 02</span>
-                            <h3 id="card2-title" class="text-xl font-bold text-slate-100 group-hover:text-purple-300 transition">Black Hole (Lubang Hitam)</h3>
-                            <p id="card2-desc" class="text-slate-400 text-sm">Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.</p>
+                            <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Topik 02</span>
+                            <h3 id="card2-title" class="text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition">Black Hole (Lubang Hitam)</h3>
+                            <p id="card2-desc" class="text-slate-500 text-sm">Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.</p>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-purple-950/50 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:translate-x-1 transition">
+                        <div class="w-10 h-10 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 group-hover:translate-x-1 transition">
                             →
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3: Nebula (Belum Tersedia) -->
-                <div onclick="openEncyclopedia('nebula')" class="group relative bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-pink-500/50 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-lg backdrop-blur-sm">
+                <div onclick="openEncyclopedia('nebula')" class="group relative bg-white/80 hover:bg-white border border-slate-200 hover:border-pink-400 p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1">
-                            <span class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Topik 03</span>
-                            <h3 id="card3-title" class="text-xl font-bold text-slate-100 group-hover:text-pink-300 transition">Nebula Kosmik</h3>
-                            <p id="card3-desc" class="text-slate-400 text-sm">Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.</p>
+                            <span class="text-xs font-semibold text-pink-600 uppercase tracking-wider">Topik 03</span>
+                            <h3 id="card3-title" class="text-xl font-bold text-slate-800 group-hover:text-pink-600 transition">Nebula Kosmik</h3>
+                            <p id="card3-desc" class="text-slate-500 text-sm">Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.</p>
                         </div>
-                        <div class="w-10 h-10 rounded-full bg-pink-950/50 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:translate-x-1 transition">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-600 group-hover:translate-x-1 transition">
                             →
                         </div>
                     </div>
@@ -125,48 +133,48 @@
         <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG (FULL ENGLISH & MODERN LAYOUT) ================= -->
         <section id="encyclopedia-bigbang" class="hidden space-y-8 animate-fadeIn">
             <!-- Tombol Kembali -->
-            <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-sky-400 hover:text-sky-300 bg-sky-950/40 border border-sky-500/30 px-4 py-2 rounded-xl transition">
+            <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-sky-700 hover:text-sky-800 bg-white/80 border border-sky-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
             </button>
 
-            <!-- Tampilan Ensiklopedia Modern -->
-            <div class="space-y-8 bg-slate-900/50 border border-white/10 p-6 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl">
+            <!-- Tampilan Ensiklopedia Modern Terang -->
+            <div class="space-y-8 bg-white/90 border border-slate-200 p-6 md:p-10 rounded-3xl backdrop-blur-md shadow-xl">
                 
                 <!-- Judul Utama Ensiklopedia -->
-                <div class="border-b border-white/10 pb-6">
-                    <span class="text-xs font-semibold text-sky-400 uppercase tracking-widest">Astronomy Encyclopedia Vol. 01</span>
-                    <h1 class="text-3xl md:text-5xl font-bold text-white mt-2 font-space">The Big Bang Theory</h1>
-                    <p class="text-slate-400 text-sm mt-1">The scientific model describing the origin and evolution of the universe.</p>
+                <div class="border-b border-slate-100 pb-6">
+                    <span class="text-xs font-semibold text-sky-600 uppercase tracking-widest">Astronomy Encyclopedia Vol. 01</span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mt-2 font-space">The Big Bang Theory</h1>
+                    <p class="text-slate-500 text-sm mt-1">The scientific model describing the origin and evolution of the universe.</p>
                 </div>
 
-                <!-- Bagian Gambar Utama & Keterangan (Gaya Ensiklopedia Modern) -->
+                <!-- Bagian Gambar Utama & Keterangan (Gambar Kosmik Elegan & Terang) -->
                 <div class="space-y-3">
-                    <div class="overflow-hidden rounded-2xl border border-sky-500/20 shadow-lg group">
-                        <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="The Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                    <div class="overflow-hidden rounded-2xl border border-sky-200 shadow-md group">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" alt="The Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
-                    <p class="text-xs text-slate-400 text-center italic">Figure 1.1 — Artistic simulation of cosmic expansion and early universe energy distribution.</p>
+                    <p class="text-xs text-slate-500 text-center italic">Figure 1.1 — Artistic representation of cosmic expanse, galaxies, and energetic light distribution.</p>
                 </div>
 
                 <!-- Konten Paragraf 1: General Statement -->
                 <div class="space-y-3">
-                    <h2 class="text-xl font-bold text-sky-300 font-space">1. General Statement</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                    <h2 class="text-xl font-bold text-sky-700 font-space">1. General Statement</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
                         The <strong>Big Bang Theory</strong> is the leading scientific explanation about the origin and evolution of our universe. It states that the entire universe—including all matter, energy, space, and time—originated approximately 13.8 billion years ago from an infinitely dense, extremely hot singularity. From this initial state, the universe underwent a rapid and massive cosmic expansion, eventually cooling down to allow fundamental particles to form atoms, which later evolved into stars, galaxies, and planets as we know today.
                     </p>
                 </div>
 
                 <!-- Konten Paragraf 2: Scientific Evidence (NASA) -->
                 <div class="space-y-3">
-                    <h2 class="text-xl font-bold text-sky-300 font-space">2. Scientific Evidence (NASA Research)</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                    <h2 class="text-xl font-bold text-sky-700 font-space">2. Scientific Evidence (NASA Research)</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
                         The validity of the Big Bang theory is strongly supported by three major pillars of observational evidence studied by space agencies like NASA. First, the <strong>expansion of the universe</strong>, observed by Edwin Hubble, showing galaxies moving away from each other. Second, the existence of the <em>Cosmic Microwave Background (CMB)</em> radiation, which serves as the ancient thermal fossil echo from the hot primeval phase. Third, the observed <strong>abundance of light elements</strong> such as hydrogen, helium, and lithium, precisely matching the theoretical predictions of early cosmic nucleosynthesis.
                     </p>
                 </div>
 
                 <!-- Konten Paragraf 3: Component Description (DOSASCOMP) -->
                 <div class="space-y-3">
-                    <h2 class="text-xl font-bold text-sky-300 font-space">3. Cosmic Description</h2>
-                    <p class="text-slate-300 leading-relaxed text-sm md:text-base text-justify">
+                    <h2 class="text-xl font-bold text-sky-700 font-space">3. Cosmic Description</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
                         Following the cooling period after the Big Bang, gravity began pulling cosmic materials together across hundreds of millions of years, giving birth to magnificent galactic structures. A prominent example of this evolutionary result is <strong>a beautiful massive ancient spiral galaxy</strong> like our Milky Way. These stellar systems act as vast cosmic ecosystems that bind trillions of solar systems, gas clouds, and dark matter into enduring celestial architectures.
                     </p>
                 </div>
@@ -177,17 +185,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full border-t border-white/10 py-6 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Astropedia. Mini Astronomy Encyclopedia Task.</p>
+    <footer class="w-full border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-white/40">
+        <p>&copy; 2026 Astropedia. Tugas Mini Ensiklopedia Astronomi Kelompok.</p>
     </footer>
 
     <!-- JavaScript Logika Multi-bahasa & Navigasi -->
     <script>
-        // Data Terjemahan Dashboard
         const translations = {
             id: {
-                dashTitle: "Eksplorasi Kosmos",
-                dashDesc: "Pilih topik astronomi di bawah ini untuk menyelami misteri alam semesta melalui lembar ensiklopedia interaktif.",
                 card1Title: "Teori Big Bang",
                 card1Desc: "Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.",
                 card2Title: "Black Hole (Lubang Hitam)",
@@ -199,8 +204,6 @@
                 alertBtn: "Mengerti"
             },
             en: {
-                dashTitle: "Cosmic Exploration",
-                dashDesc: "Choose an astronomy topic below to explore the mysteries of the universe through interactive encyclopedia sheets.",
                 card1Title: "The Big Bang Theory",
                 card1Desc: "The origin of the universe, NASA scientific evidence, and the formation of ancient galaxies.",
                 card2Title: "Black Holes",
@@ -219,9 +222,6 @@
             currentLang = lang;
             const t = translations[lang];
 
-            // Ubah teks di dashboard
-            document.getElementById('dash-title').innerText = t.dashTitle;
-            document.getElementById('dash-desc').innerText = t.dashDesc;
             document.getElementById('card1-title').innerText = t.card1Title;
             document.getElementById('card1-desc').innerText = t.card1Desc;
             document.getElementById('card2-title').innerText = t.card2Title;
@@ -229,19 +229,17 @@
             document.getElementById('card3-title').innerText = t.card3Title;
             document.getElementById('card3-desc').innerText = t.card3Desc;
 
-            // Atur gaya tombol aktif translate
             if (lang === 'id') {
-                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
-                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition";
+                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1.5 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
+                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-600 hover:text-slate-900 transition";
             } else {
-                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
-                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 bg-slate-900 text-slate-400 hover:text-white transition";
+                document.getElementById('btn-en').className = "text-xs font-semibold px-3 py-1.5 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm";
+                document.getElementById('btn-id').className = "text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-600 hover:text-slate-900 transition";
             }
         }
 
         function openEncyclopedia(topic) {
             if (topic === 'bigbang') {
-                // Sembunyikan dashboard & tombol translate header, tampilkan halaman Big Bang
                 document.getElementById('dashboard-view').classList.add('hidden');
                 document.getElementById('translate-container').classList.add('hidden');
                 document.getElementById('encyclopedia-bigbang').classList.remove('hidden');
@@ -253,7 +251,7 @@
                     text: t.alertText,
                     icon: 'info',
                     confirmButtonText: t.alertBtn,
-                    backdrop: 'rgba(3, 7, 18, 0.7)',
+                    backdrop: 'rgba(241, 245, 249, 0.8)',
                     customClass: {
                         popup: 'rounded-2xl'
                     }
@@ -262,7 +260,6 @@
         }
 
         function showDashboard() {
-            // Kembali ke dashboard dan munculkan kembali tombol translate
             document.getElementById('encyclopedia-bigbang').classList.add('hidden');
             document.getElementById('dashboard-view').classList.remove('hidden');
             document.getElementById('translate-container').classList.remove('hidden');
