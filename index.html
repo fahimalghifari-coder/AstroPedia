@@ -98,16 +98,16 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Black Hole (Belum Tersedia) -->
-                <div onclick="openEncyclopedia('blackhole')" class="group relative bg-gradient-to-r from-indigo-500/10 via-white to-indigo-500/5 hover:from-indigo-500/20 hover:to-indigo-500/10 border-2 border-indigo-200 hover:border-indigo-400 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
+                <!-- Card 2: Black Hole (Tersedia) -->
+                <div onclick="openEncyclopedia('blackhole')" class="group relative bg-gradient-to-r from-indigo-500/10 via-white to-indigo-500/5 hover:from-indigo-500/20 hover:to-indigo-500/10 border-2 border-indigo-300 hover:border-indigo-500 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1.5">
-                            <span class="inline-block bg-indigo-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Topik 02 • Segera</span>
+                            <span class="inline-block bg-indigo-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Topik 02 • Tersedia</span>
                             <h3 id="card2-title" class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-indigo-600 transition font-space">Black Hole (Lubang Hitam)</h3>
                             <p id="card2-desc" class="text-slate-600 text-sm">Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.</p>
                         </div>
                         <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:translate-x-1 transition">
-                            🔒
+                            →
                         </div>
                     </div>
                 </div>
@@ -130,32 +130,30 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG (FULL ENGLISH & MODERN LAYOUT) ================= -->
+        <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG ================= -->
         <section id="encyclopedia-bigbang" class="hidden space-y-8 animate-fadeIn">
-            <!-- Tombol Kembali -->
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-sky-700 hover:text-sky-800 bg-white/80 border border-sky-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
             </button>
 
-            <!-- Tampilan Ensiklopedia Modern Terang -->
-            <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl">
+            <!-- Tampilan Buku Ensiklopedia Modern Terang -->
+            <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative">
+                <!-- Aksen Pita Buku di Sudut -->
+                <div class="absolute top-0 right-10 bg-sky-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl shadow">Vol. 01</div>
 
-                <!-- Judul Utama Ensiklopedia -->
-                <div class="border-b border-slate-100 pb-6">
-                    <span class="text-xs font-semibold text-sky-600 uppercase tracking-widest">Astronomy Encyclopedia Vol. 01</span>
+                <div class="border-b border-slate-200 pb-6">
+                    <span class="text-xs font-semibold text-sky-600 uppercase tracking-widest">Astronomy Encyclopedia</span>
                     <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mt-2 font-space">The Big Bang Theory</h1>
                     <p class="text-slate-500 text-sm mt-1">The scientific model describing the origin and evolution of the universe.</p>
                 </div>
 
-                <!-- Bagian Gambar Ilustrasi Big Bang dari Unsplash -->
                 <div class="space-y-3">
-                    <div class="overflow-hidden rounded-2xl border-2 border-sky-300 shadow-lg group">
+                    <div class="overflow-hidden rounded-2xl border-2 border-sky-200 shadow-lg group bg-slate-50">
                         <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 1.1 — Artistic illustration of the Big Bang singularity expansion and early cosmic ignition.</p>
                 </div>
 
-                <!-- Konten Paragraf 1: General Statement (Diperbarui dengan teks asli NASA) -->
                 <div class="space-y-3">
                     <h2 class="text-xl font-bold text-sky-700 font-space">1. General Statement</h2>
                     <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
@@ -163,7 +161,6 @@
                     </p>
                 </div>
 
-                <!-- Konten Paragraf 2: Scientific Evidence (NASA) -->
                 <div class="space-y-3">
                     <h2 class="text-xl font-bold text-sky-700 font-space">2. Scientific Evidence (NASA Research)</h2>
                     <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
@@ -171,14 +168,60 @@
                     </p>
                 </div>
 
-                <!-- Konten Paragraf 3: Component Description (DOSASCOMP) -->
                 <div class="space-y-3">
                     <h2 class="text-xl font-bold text-sky-700 font-space">3. Cosmic Description</h2>
                     <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
                         Following the cooling period after the Big Bang, gravity began pulling cosmic materials together across hundreds of millions of years, giving birth to magnificent galactic structures. A prominent example of this evolutionary result is <strong>a beautiful massive ancient spiral galaxy</strong> like our Milky Way. These stellar systems act as vast cosmic ecosystems that bind trillions of solar systems, gas clouds, and dark matter into enduring celestial architectures.
                     </p>
                 </div>
+            </div>
+        </section>
 
+
+        <!-- ================= HALAMAN ENSISKLOPEDIA BLACK HOLE ================= -->
+        <section id="encyclopedia-blackhole" class="hidden space-y-8 animate-fadeIn">
+            <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-indigo-700 hover:text-indigo-800 bg-white/80 border border-indigo-200 px-4 py-2 rounded-xl transition shadow-sm">
+                <span>← Back to Dashboard</span>
+            </button>
+
+            <!-- Tampilan Buku Ensiklopedia Modern Terang -->
+            <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative">
+                <!-- Aksen Pita Buku di Sudut -->
+                <div class="absolute top-0 right-10 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl shadow">Vol. 02</div>
+
+                <div class="border-b border-slate-200 pb-6">
+                    <span class="text-xs font-semibold text-indigo-600 uppercase tracking-widest">Astronomy Encyclopedia</span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mt-2 font-space">Black Holes</h1>
+                    <p class="text-slate-500 text-sm mt-1">The mysterious regions of space with gravitational fields so strong nothing can escape.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="overflow-hidden rounded-2xl border-2 border-indigo-200 shadow-lg group bg-slate-50">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1200&auto=format&fit=crop" alt="Black Hole Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <p class="text-xs text-slate-500 text-center italic">Figure 2.1 — Scientific visualization of an accretion disk wrapping around an invisible black hole.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-indigo-700 font-space">1. General Statement</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        A black hole is a place in space where gravity pulls so much that even light can not get out. The gravity is so strong because matter has been squeezed into a tiny space. This can happen when a star is dying. Because no light can get out, people can't see black holes. They are invisible. Space telescopes with special tools can help find black holes.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-indigo-700 font-space">2. Scientific Evidence & Observation (NASA)</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        Although direct light cannot escape from a black hole, space agencies like NASA study them through indirect observation. When matter is pulled inward by intense gravity, it forms a bright spinning accretion disk that emits high-energy X-rays. Furthermore, space telescopes monitor the orbital movements of nearby stars and gas clouds to calculate the massive gravitational pull exerted by hidden black holes at the center of galaxies.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-indigo-700 font-space">3. Cosmic Description</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        Near the boundary of these enigmatic cosmic regions lies **a dark mysterious massive gravitational abyss** that shapes the dynamics of entire star systems. These invisible gravitational powerhouses warp space-time profoundly, creating some of the most awe-inspiring yet elusive phenomena in our universe.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -239,13 +282,17 @@
         }
 
         function openEncyclopedia(topic) {
+            document.getElementById('dashboard-view').classList.add('hidden');
+            document.getElementById('translate-container').classList.add('hidden');
+            
             if (topic === 'bigbang') {
-                document.getElementById('dashboard-view').classList.add('hidden');
-                document.getElementById('translate-container').classList.add('hidden');
                 document.getElementById('encyclopedia-bigbang').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (topic === 'blackhole') {
+                document.getElementById('encyclopedia-blackhole').classList.remove('hidden');
             } else {
                 const t = translations[currentLang];
+                document.getElementById('dashboard-view').classList.remove('hidden');
+                document.getElementById('translate-container').classList.remove('hidden');
                 Swal.fire({
                     title: t.alertTitle,
                     text: t.alertText,
@@ -256,11 +303,14 @@
                         popup: 'rounded-2xl'
                     }
                 });
+                return;
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function showDashboard() {
             document.getElementById('encyclopedia-bigbang').classList.add('hidden');
+            document.getElementById('encyclopedia-blackhole').classList.add('hidden');
             document.getElementById('dashboard-view').classList.remove('hidden');
             document.getElementById('translate-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
