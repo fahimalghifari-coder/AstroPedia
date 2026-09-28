@@ -112,16 +112,16 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Nebula (Belum Tersedia) -->
-                <div onclick="openEncyclopedia('nebula')" class="group relative bg-gradient-to-r from-pink-500/10 via-white to-pink-500/5 hover:from-pink-500/20 hover:to-pink-500/10 border-2 border-pink-200 hover:border-pink-400 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
+                <!-- Card 3: Nebula (Tersedia) -->
+                <div onclick="openEncyclopedia('nebula')" class="group relative bg-gradient-to-r from-pink-500/10 via-white to-pink-500/5 hover:from-pink-500/20 hover:to-pink-500/10 border-2 border-pink-300 hover:border-pink-500 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1.5">
-                            <span class="inline-block bg-pink-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Topik 03 • Segera</span>
-                            <h3 id="card3-title" class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-pink-600 transition font-space">Nebula Kosmik</h3>
+                            <span class="inline-block bg-pink-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Topik 03 • Tersedia</span>
+                            <h3 id="card3-title" class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-pink-600 transition font-space">Cosmic Nebulae (Nebula Kosmik)</h3>
                             <p id="card3-desc" class="text-slate-600 text-sm">Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.</p>
                         </div>
                         <div class="w-12 h-12 rounded-2xl bg-pink-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 group-hover:translate-x-1 transition">
-                            🔒
+                            →
                         </div>
                     </div>
                 </div>
@@ -136,9 +136,7 @@
                 <span>← Back to Dashboard</span>
             </button>
 
-            <!-- Tampilan Buku Ensiklopedia Modern Terang -->
             <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative">
-                <!-- Aksen Pita Buku di Sudut -->
                 <div class="absolute top-0 right-10 bg-sky-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl shadow">Vol. 01</div>
 
                 <div class="border-b border-slate-200 pb-6">
@@ -149,7 +147,7 @@
 
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-sky-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="61030.jpg" alt="Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 1.1 — Artistic illustration of the Big Bang singularity expansion and early cosmic ignition.</p>
                 </div>
@@ -178,15 +176,13 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSISKLOPEDIA BLACK HOLE ================= -->
+        <!-- ================= HALAMAN ENSIKLOPEDIA BLACK HOLE ================= -->
         <section id="encyclopedia-blackhole" class="hidden space-y-8 animate-fadeIn">
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-indigo-700 hover:text-indigo-800 bg-white/80 border border-indigo-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
             </button>
 
-            <!-- Tampilan Buku Ensiklopedia Modern Terang -->
             <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative">
-                <!-- Aksen Pita Buku di Sudut -->
                 <div class="absolute top-0 right-10 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl shadow">Vol. 02</div>
 
                 <div class="border-b border-slate-200 pb-6">
@@ -225,6 +221,52 @@
             </div>
         </section>
 
+
+        <!-- ================= HALAMAN ENSIKLOPEDIA NEBULA ================= -->
+        <section id="encyclopedia-nebula" class="hidden space-y-8 animate-fadeIn">
+            <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-pink-700 hover:text-pink-800 bg-white/80 border border-pink-200 px-4 py-2 rounded-xl transition shadow-sm">
+                <span>← Back to Dashboard</span>
+            </button>
+
+            <div class="space-y-8 bg-white/95 border border-slate-200 p-6 md:p-12 rounded-3xl backdrop-blur-md shadow-2xl relative">
+                <div class="absolute top-0 right-10 bg-pink-600 text-white text-xs font-bold px-4 py-1.5 rounded-b-xl shadow">Vol. 03</div>
+
+                <div class="border-b border-slate-200 pb-6">
+                    <span class="text-xs font-semibold text-pink-600 uppercase tracking-widest">Astronomy Encyclopedia</span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 mt-2 font-space">Cosmic Nebulae</h1>
+                    <p class="text-slate-500 text-sm mt-1">The magnificent interstellar clouds of dust, gas, and plasma where stars are born.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="overflow-hidden rounded-2xl border-2 border-pink-200 shadow-lg group bg-slate-50">
+                        <img src="https://images.unsplash.com/photo-1462332150257-5a6bb0506636?q=80&w=1200&auto=format&fit=crop" alt="Cosmic Nebula Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <p class="text-xs text-slate-500 text-center italic">Figure 3.1 — Vibrant interstellar clouds of gas and dust acting as stellar nurseries in deep space.</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-pink-700 font-space">1. General Statement</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        A nebula is a vast and luminous interstellar cloud of dust, hydrogen gas, helium, and plasma residing in outer space. Historically derived from the Latin word meaning "mist" or "cloud," these celestial structures represent some of the most visually stunning features of the cosmos. Functioning as stellar nurseries, they serve as the primary cosmic crucibles where gravity compresses matter to ignite new star systems, while also preserving the magnificent glowing remnants of dead and exploded stars.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-pink-700 font-space">2. Component Description (Detailed Structure)</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        A nebula is a giant cloud in outer space consisting of dust, hydrogen gas, helium, and plasma. In Latin, the word “nebula” means “mist” or “cloud.” These astronomical objects play a very crucial role in the life cycle of the universe. Nebulae are often referred to as “stellar nurseries” because this is where new stars are born when the material within them collapses under the force of gravity. Besides being places where stars are born, some nebulae are also formed from the remnants of exploded stars that have died, such as supernovae.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h2 class="text-xl font-bold text-pink-700 font-space">3. Cosmic Description</h2>
+                    <p class="text-slate-700 leading-relaxed text-sm md:text-base text-justify">
+                        Floating deep across the interstellar medium is **a fascinating massive ancient colorful gaseous star-forming nebula** that illuminates the dark cosmic expanse. These mesmerizing stellar factories continue to paint the universe with brilliant colors while shaping the ongoing evolution of new planetary systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -240,7 +282,7 @@
                 card1Desc: "Asal-usul penciptaan alam semesta, bukti ilmiah NASA, hingga pembentukan galaksi purba.",
                 card2Title: "Black Hole (Lubang Hitam)",
                 card2Desc: "Gravitasi ekstrem, horizon peristiwa, dan wilayah ruang angkasa di mana cahaya tak bisa lolos.",
-                card3Title: "Nebula Kosmik",
+                card3Title: "Cosmic Nebulae (Nebula Kosmik)",
                 card3Desc: "Awan raksasa antariksa yang terdiri dari debu, plasma, dan gas sebagai tempat lahirnya bintang.",
                 alertTitle: "Belum Tersedia",
                 alertText: "Halaman ensiklopedia untuk topik ini sedang dalam tahap penelitian kosmik.",
@@ -289,6 +331,8 @@
                 document.getElementById('encyclopedia-bigbang').classList.remove('hidden');
             } else if (topic === 'blackhole') {
                 document.getElementById('encyclopedia-blackhole').classList.remove('hidden');
+            } else if (topic === 'nebula') {
+                document.getElementById('encyclopedia-nebula').classList.remove('hidden');
             } else {
                 const t = translations[currentLang];
                 document.getElementById('dashboard-view').classList.remove('hidden');
@@ -311,6 +355,7 @@
         function showDashboard() {
             document.getElementById('encyclopedia-bigbang').classList.add('hidden');
             document.getElementById('encyclopedia-blackhole').classList.add('hidden');
+            document.getElementById('encyclopedia-nebula').classList.add('hidden');
             document.getElementById('dashboard-view').classList.remove('hidden');
             document.getElementById('translate-container').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
