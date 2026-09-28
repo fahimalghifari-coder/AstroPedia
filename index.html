@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astropedia - Tugas Ensiklopedia Astronomi</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Google Fonts: Space Grotesk & Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -46,14 +43,12 @@
 </head>
 <body class="sky-light flex flex-col justify-between selection:bg-sky-400 selection:text-white">
 
-    <!-- Header / Navbar -->
     <header class="w-full border-b border-slate-200 backdrop-blur-md bg-white/70 sticky top-0 z-50 shadow-sm">
         <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showDashboard()" class="flex items-center space-x-2 group">
                 <span class="text-2xl font-bold tracking-wider bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent transition">ASTROPEDIA</span>
             </a>
 
-            <!-- Tombol Translate di Dashboard -->
             <div id="translate-container" class="flex items-center space-x-2">
                 <button onclick="switchLanguage('id')" id="btn-id" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-sky-500 bg-sky-500 text-white transition shadow-sm">ID</button>
                 <button onclick="switchLanguage('en')" id="btn-en" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-600 hover:text-slate-900 transition">EN</button>
@@ -61,15 +56,12 @@
         </div>
     </header>
 
-    <!-- Main Container -->
     <main id="main-content" class="max-w-3xl mx-auto px-6 py-12 w-full flex-grow transition-all duration-300">
 
-        <!-- ================= DASHBOARD (Default) ================= -->
         <section id="dashboard-view" class="space-y-8">
             <div class="text-center space-y-4 mb-10">
                 <h1 id="dash-title" class="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 font-space">Tugas Ensiklopedia Bahasa Inggris</h1>
 
-                <!-- Daftar Anggota Kelompok -->
                 <div class="inline-block bg-white/80 border border-slate-200/80 px-6 py-4 rounded-2xl shadow-sm text-left backdrop-blur-sm">
                     <p class="text-xs font-bold uppercase tracking-wider text-sky-600 mb-2 text-center">Anggota Kelompok:</p>
                     <ol class="text-slate-700 text-xs md:text-sm space-y-1 font-medium">
@@ -81,10 +73,8 @@
                 </div>
             </div>
 
-            <!-- Card Tersusun Vertikal dengan Desain Menarik Perhatian -->
             <div class="flex flex-col space-y-5">
 
-                <!-- Card 1: Big Bang (Tersedia) -->
                 <div onclick="openEncyclopedia('bigbang')" class="group relative bg-gradient-to-r from-sky-500/10 via-white to-sky-500/5 hover:from-sky-500/20 hover:to-sky-500/10 border-2 border-sky-300 hover:border-sky-500 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1.5">
@@ -98,7 +88,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Black Hole (Tersedia) -->
                 <div onclick="openEncyclopedia('blackhole')" class="group relative bg-gradient-to-r from-indigo-500/10 via-white to-indigo-500/5 hover:from-indigo-500/20 hover:to-indigo-500/10 border-2 border-indigo-300 hover:border-indigo-500 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1.5">
@@ -112,7 +101,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Nebula (Tersedia) -->
                 <div onclick="openEncyclopedia('nebula')" class="group relative bg-gradient-to-r from-pink-500/10 via-white to-pink-500/5 hover:from-pink-500/20 hover:to-pink-500/10 border-2 border-pink-300 hover:border-pink-500 p-6 rounded-3xl cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
                     <div class="flex items-center justify-between">
                         <div class="space-y-1.5">
@@ -130,7 +118,6 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSIKLOPEDIA BIG BANG ================= -->
         <section id="encyclopedia-bigbang" class="hidden space-y-8 animate-fadeIn">
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-sky-700 hover:text-sky-800 bg-white/80 border border-sky-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
@@ -145,10 +132,9 @@
                     <p class="text-slate-500 text-sm mt-1">The scientific model describing the origin and evolution of the universe.</p>
                 </div>
 
-                <!-- Gambar Utama Big Bang -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-sky-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1069/1200/800" alt="Big Bang Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 1.1 — Artistic simulation of cosmic expansion and early universe energy distribution.</p>
                 </div>
@@ -167,10 +153,9 @@
                     </p>
                 </div>
 
-                <!-- Gambar Pendukung Kedua untuk Big Bang -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-sky-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" alt="Deep Cosmos Expansion" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1042/1200/800" alt="Deep Cosmos Expansion" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 1.2 — Deep space structures formed billions of years after the initial expansion.</p>
                 </div>
@@ -185,7 +170,6 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSIKLOPEDIA BLACK HOLE ================= -->
         <section id="encyclopedia-blackhole" class="hidden space-y-8 animate-fadeIn">
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-indigo-700 hover:text-indigo-800 bg-white/80 border border-indigo-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
@@ -200,10 +184,9 @@
                     <p class="text-slate-500 text-sm mt-1">The mysterious regions of space with gravitational fields so strong nothing can escape.</p>
                 </div>
 
-                <!-- Gambar Utama Black Hole -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-indigo-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1200&auto=format&fit=crop" alt="Black Hole Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1045/1200/800" alt="Black Hole Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 2.1 — Scientific visualization of an accretion disk wrapping around an invisible black hole.</p>
                 </div>
@@ -222,10 +205,9 @@
                     </p>
                 </div>
 
-                <!-- Gambar Pendukung Kedua untuk Black Hole -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-indigo-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1543722530-d2cc2013717e?q=80&w=1200&auto=format&fit=crop" alt="Space Telescopes & Stars" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1011/1200/800" alt="Space Telescopes & Stars" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 2.2 — Advanced space observatories used by scientists to detect invisible gravitational anomalies.</p>
                 </div>
@@ -240,7 +222,6 @@
         </section>
 
 
-        <!-- ================= HALAMAN ENSIKLOPEDIA NEBULA ================= -->
         <section id="encyclopedia-nebula" class="hidden space-y-8 animate-fadeIn">
             <button onclick="showDashboard()" class="inline-flex items-center space-x-2 text-sm text-pink-700 hover:text-pink-800 bg-white/80 border border-pink-200 px-4 py-2 rounded-xl transition shadow-sm">
                 <span>← Back to Dashboard</span>
@@ -255,10 +236,9 @@
                     <p class="text-slate-500 text-sm mt-1">The magnificent interstellar clouds of dust, gas, and plasma where stars are born.</p>
                 </div>
 
-                <!-- Gambar Utama Nebula -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-pink-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1462332150257-5a6bb0506636?q=80&w=1200&auto=format&fit=crop" alt="Cosmic Nebula Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1050/1200/800" alt="Cosmic Nebula Illustration" class="w-full h-64 md:h-96 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 3.1 — Vibrant interstellar clouds of gas and dust acting as stellar nurseries in deep space.</p>
                 </div>
@@ -277,10 +257,9 @@
                     </p>
                 </div>
 
-                <!-- Gambar Pendukung Kedua untuk Nebula -->
                 <div class="space-y-3">
                     <div class="overflow-hidden rounded-2xl border-2 border-pink-200 shadow-lg group bg-slate-50">
-                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1200&auto=format&fit=crop" alt="Stellar Nursery Formation" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
+                        <img src="https://picsum.photos/id/1039/1200/800" alt="Stellar Nursery Formation" class="w-full h-56 md:h-80 object-cover group-hover:scale-105 transition duration-700">
                     </div>
                     <p class="text-xs text-slate-500 text-center italic">Figure 3.2 — Close-up view of stellar birth inside dense hydrogen and plasma clusters.</p>
                 </div>
@@ -296,12 +275,10 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="w-full border-t border-slate-200 py-6 text-center text-xs text-slate-500 bg-white/40">
         <p>&copy; 2026 Astropedia. AzFaZiKi.</p>
     </footer>
 
-    <!-- JavaScript Logika Multi-bahasa & Navigasi -->
     <script>
         const translations = {
             id: {
